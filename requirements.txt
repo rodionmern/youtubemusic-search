@@ -1,0 +1,2 @@
+YouTubeMusicAPI==2.9.1
+pyperclip==1.9.0
