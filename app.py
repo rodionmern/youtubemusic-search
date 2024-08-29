@@ -16,59 +16,47 @@ print('''
 1 - Выдать обложку композиции
 ''')
 
-inputOut = input("")
-
+inputChoice = input("")
 clearTerm()
 
-if inputOut == "0":
-    query = input("Введи автора и название композиции: ")
-    result = YouTubeMusicAPI.search(query)
+query = input("Введи автора и название композиции: ")
+result = YouTubeMusicAPI.search(query)
+
+if inputChoice == "0":
     clearTerm()
     if result:
-        print(f'Исполнитель: {result.get("name")}')
-        print(f'Название композиции: {result.get("title")}')
-        print(f'URL адрес: {result.get("url")}')
-        print("")
-        print("Скопировать ссылку в буфер обмена?")
+        print(f'Исполнитель: {result.get("name")}\nНазвание композиции: {result.get("title")}\nURL адрес: {result.get("url")}\n')
+        print('Скопировать ссылку в буфер обмена?')
         copy = input("Y/n: ")
         if copy == "Y" or copy == "y" or copy == "Yes" or copy == "yes":
             clearTerm()
             pyperclip.copy(result.get("url"))
-            print("Скопировано.")
-            print("")
-            print("Программа будет закрыта через несколько секунд..")
+            print('Скопировано.\nПрограмма будет закрыта через несколько секунд..')
             time.sleep(3)
             quit()
         else:
             clearTerm()
-            print("Программа будет закрыта через несколько секунд..")
+            print('Программа будет закрыта через несколько секунд..')
             time.sleep(3)
             quit()
     else:
         print("Композиция не найдена, проверьте входные данные.")
-elif inputOut == "1":
-    query = input("Введи автора и название композиции: ")
-    result = YouTubeMusicAPI.search(query)
+elif inputChoice == "1":
     clearTerm()
     if result:
-        print(f'Исполнитель: {result.get("name")}')
-        print(f'Название композиции: {result.get("title")}')
-        print(f'URL обложки: {result.get("artwork")}')
-        print("")
-        print("Скопировать ссылку в буфер обмена?")
+        print(f'Исполнитель: {result.get("name")}\nНазвание композиции: {result.get("title")}\nОбложка: {result.get("artwork")}\n')
+        print('Скопировать ссылку в буфер обмена?')
         copy = input("Y/n: ")
         if copy == "Y" or copy == "y" or copy == "Yes" or copy == "yes":
             clearTerm()
             pyperclip.copy(result.get("artwork"))
-            print("Скопировано.")
-            print("")
-            print("Программа будет закрыта через несколько секунд..")
+            print('Скопировано.\nПрограмма будет закрыта через несколько секунд..')
             time.sleep(3)
             quit()
         else:
             clearTerm()
-            print("Программа будет закрыта через несколько секунд..")
+            print('Программа будет закрыта через несколько секунд..')
             time.sleep(3)
             quit()
     else:
-        print("Композиция не найдена, проверьте входные данные.")
+        print('Композиция не найдена, проверьте входные данные.')
